@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TimeController@retrieveAll');
+Route::get('/timeIn/{id}', 'TimeController@timeIn')->name('timeIn');
+Route::get('/timeOut/{id}', 'TimeController@timeOut')->name('timeOut');
+Route::get('/start_break/{id}', 'TimeController@start_break')->name('start_break');
+Route::get('/end_break/{id}', 'TimeController@end_break')->name('end_break');
+Route::post('/switch', 'TimeController@switchEmp')->name('checkEmp');
